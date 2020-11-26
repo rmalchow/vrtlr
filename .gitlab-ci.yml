@@ -10,7 +10,7 @@ cache:
 
 build-jar:
   stage: maven
-  image: maven
+  image: harbor.cloudpowered.services/mcon-group-public/springboot-openjdk11
   tags: 
   - docker
   script:

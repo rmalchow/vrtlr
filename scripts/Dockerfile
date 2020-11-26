@@ -1,4 +1,4 @@
-FROM rmalchow/springboot
+FROM harbor.cloudpowered.services/mcon-group-public/springboot-openjdk11
 MAINTAINER Ruben Malchow <ruben.malchow@mcon-group.com>
 COPY shrtnr-app/target/shrtnr-app.jar shrtnr-app.jar
 COPY shrtnr-app/config/application.yml ./

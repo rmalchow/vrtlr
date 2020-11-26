@@ -1,0 +1,10 @@
+version: "3"
+services:
+  shrtnr:
+    image: rmalchow/shrtnr:latest
+    restart: always
+    volumes:
+     - ${home}/data:/data/
+     - ${home}/application.yml:/app/application.yml
+    ports:
+    - 1070:8080
