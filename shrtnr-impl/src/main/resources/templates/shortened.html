@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<base href="./">
+		<title>shrtnr</title>
+		<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
+	</head>
+	<body>
+		<form method="post" enctype="application/x-www-form-urlencoded" action="/shrtn">
+			<div class="main">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h1>Shorten my URL</h1>
+						</div>
+						<div th:switch="${condition}" class="col-12">
+							<div class="row">
+								<div class="col-8">
+									your URL:<br>
+									<a th:href="${target}"><span th:text="${target}"></span></a>
+								</div>
+								<div class="col-4">
+									<img th:src="${qr}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div th:utext="${include}">
+		</div>
+	</body>
+</html>

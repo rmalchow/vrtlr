@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<base href="./">
+		<title>shrtnr</title>
+		<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
+	</head>
+	<body>
+		<form method="post" enctype="application/x-www-form-urlencoded" action="/shrtn">
+			<div class="main">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h1>Shorten my URL</h1>
+						</div>
+						<div class="col-8">
+							<input class="form-control" name="url" > 
+						</div>
+						<div class="col-4">
+							<button class="btn btn-primary" type="submit">shorten this!</button> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div th:utext="${include}">
+		</div>
+	</body>
+</html>
