@@ -58,10 +58,19 @@ public class ShtnrController {
 		ModelAndView out = new ModelAndView("index");
 		out.addObject("url",url);
 		out.addObject("hasError",false);
+
+		url = StringUtils.defaultString(url,"").trim();
 		
 		if(StringUtils.isEmpty(url)) {
 			return out;
 		}
+		
+		if(url.length()>1024) {
+			out.addObject("hasError",true);
+			out.addObject("error","URL too long");
+			return out;
+		}
+
 		
 		try {
 			Shrtnd s = service.create(url);
@@ -93,6 +102,8 @@ public class ShtnrController {
 	
 	@GetMapping(value = "/{shortened}")
 	public ModelAndView shorten(@PathVariable String shortened, HttpServletResponse response) throws SqlException, WriterException, IOException {
+		
+		if(shortened.length()>20) return null;
 		
 		Shrtnd s = service.get(shortened);
 		if(s==null) {

@@ -1,5 +1,7 @@
 package ignorelist.shrtnr.impl.services;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -31,6 +33,10 @@ public class ShrtnrService {
 	public Shrtnd create(String url) throws SqlException {
 
 		try {
+			
+			List<Shrtnd> se = r.find(null, url, 0, 1);
+			if(se.size()>0) return se.get(0);
+			
 			Document document = Jsoup.connect(url).get();
 			String title = getMetaTagContent(document, "meta[name=title]");
 			String desc = getMetaTagContent(document, "meta[name=description]");
