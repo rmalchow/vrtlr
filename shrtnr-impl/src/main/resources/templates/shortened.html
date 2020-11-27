@@ -5,36 +5,35 @@
 		<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
 	</head>
 	<body>
-		<form method="post" enctype="application/x-www-form-urlencoded" action="/shrtn">
-			<div class="main">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h1>Shorten my URL</h1>
-						</div>
-						<div class="col-12 mb-4">
-							<div class="row">
-								<div class="col-2" th:switch="${link.image!=null}">
-									<img src="" th:src="${link.image}" style="max-width: 120px">
-								</div>
-								<div class="col-4">
-									<h5 th:text="${link.title}"></h5>
-									<p th:text="${link.desc}"></p>
-								</div>
-								<div class="col-4">
-									<h5>Shortened Link</h5>
-									<a th:href="${target}"><span th:text="${target}"></span></a>
-								</div>
-								<div class="col-2">
-									<img th:src="${qr}">
-								</div>
+		<div class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1>Shorten my URL</h1>
+					</div>
+					<div class="col-12 mb-4">
+						<div class="row">
+							<div class="col-2" th:switch="${link.image!=null}">
+								<img src="" th:src="${link.image}" style="max-width: 120px">
+							</div>
+							<div class="col-4">
+								<h5 th:text="${link.title}"></h5>
+								<p th:text="${link.desc}"></p>
+							</div>
+							<div class="col-4">
+								<h5>Shortened Link</h5>
+								<a th:href="${target}"><span th:text="${target}"></span></a>
+							</div>
+							<div class="col-2">
+								<img th:src="${qr}">
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="col-12">
+					<div th:utext="${include}"></div>
+				</div>
 			</div>
-		</form>
-		<div th:utext="${include}">
 		</div>
 	</body>
 </html>
