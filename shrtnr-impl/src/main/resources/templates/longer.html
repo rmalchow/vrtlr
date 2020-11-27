@@ -13,11 +13,18 @@
 						<div class="col-12">
 							<h1>Lengthen my URL</h1>
 						</div>
-						<div th:switch="${condition}" class="col-12">
+						<div class="col-12">
 							<div class="row">
-								<div class="col-8">
-									your URL:<br>
-									<a th:href="${target}"><span th:text="${target}"></span></a>
+								<div class="col-2" th:switch="${link.image!=null}">
+									<img src="" th:src="${link.image}" style="max-width: 120px">
+								</div>
+								<div class="col-4">
+									<h5 th:text="${link.title}"></h5>
+									<p th:text="${link.desc}"></p>
+								</div>
+								<div class="col-6">
+									<h5>Click to visit this URL</h5>
+									<a th:href="${link.url}"><span th:text="${link.url}"></span></a>
 								</div>
 							</div>
 						</div>

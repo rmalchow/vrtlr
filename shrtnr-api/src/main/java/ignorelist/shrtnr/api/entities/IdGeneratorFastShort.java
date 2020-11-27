@@ -33,15 +33,15 @@ public class IdGeneratorFastShort implements IdGenerator {
 		char[] x = new char[8];
 		int l=0;
 		l=sr.nextInt();
-		x[0] = (char)alphabet[l>>0 &0x1F];
-		x[1] = (char)alphabet[l>>5 &0x1F];
-		x[2] = (char)alphabet[l>>10 &0x1F];
-		x[3] = (char)alphabet[l>>15 &0x1F];
+		x[0] = (char)alphabet[l>>0 &0x3F];
+		x[1] = (char)alphabet[l>>6 &0x3F];
+		x[2] = (char)alphabet[l>>12 &0x3F];
+		x[3] = (char)alphabet[l>>18 &0x3F];
 		l=sr.nextInt();
-		x[4] = (char)alphabet[l>>0 &0x1F];
-		x[5] = (char)alphabet[l>>5 &0x1F];
-		x[6] = (char)alphabet[l>>10 &0x1F];
-		x[7] = (char)alphabet[l>>15 &0x1F];
+		x[4] = (char)alphabet[l>>0 &0x3F];
+		x[5] = (char)alphabet[l>>6 &0x3F];
+		x[6] = (char)alphabet[l>>12 &0x3F];
+		x[7] = (char)alphabet[l>>18 &0x3F];
 		return new String(x);
 	}
 	

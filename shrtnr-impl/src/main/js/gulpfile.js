@@ -81,7 +81,11 @@ gulp.task('build-deps', function() {
         'node_modules/restangular/dist/restangular.min.js',
         'node_modules/angular-date-picker/angular-date-picker.js',
         'node_modules/select2/dist/js/select2.min.js',
-        'node_modules/otpauth/dist/otpauth.min.js'
+        'node_modules/otpauth/dist/otpauth.min.js',
+		'node_modules/link-preview-generator/index.js',
+		'node_modules/util/util.js',
+		
+		
     ];
     return gulp.src(jsFiles)
         .pipe(concat('js/dependencies.js'))

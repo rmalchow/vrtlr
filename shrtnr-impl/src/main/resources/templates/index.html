@@ -1,28 +1,34 @@
 <html>
-	<head>
-		<base href="./">
-		<title>shrtnr</title>
-		<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
-	</head>
-	<body>
-		<form method="post" enctype="application/x-www-form-urlencoded" action="/shrtn">
-			<div class="main">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<h1>Shorten my URL</h1>
-						</div>
-						<div class="col-8">
-							<input class="form-control" name="url" > 
-						</div>
-						<div class="col-4">
-							<button class="btn btn-primary" type="submit">shorten this!</button> 
+<head>
+<base href="./">
+<title>shrtnr</title>
+<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
+</head>
+<body>
+	<form method="post" enctype="application/x-www-form-urlencoded"
+		action="/shrtn">
+		<div class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1>Shorten my URL</h1>
+					</div>
+					<div class="col-10 mb-4">
+						<input class="form-control" name="url" th:value="${url}" autofocus>
+					</div>
+					<div class="col-2 text-right mb-4">
+						<button class="btn btn-primary" type="submit">shorten
+							this!</button>
+					</div>
+					<div class="col-12 mb-4"  th:if="${hasError}">
+						<div class="alert alert-danger">
+							<p th:text="${error}">This is not a valid URL</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
-		<div th:utext="${include}">
 		</div>
-	</body>
+	</form>
+	<div th:utext="${include}"></div>
+</body>
 </html>

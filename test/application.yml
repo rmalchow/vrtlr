@@ -6,12 +6,12 @@ spring.resources.cache.period: 1
 
 spring.datasource.platform: h2
 spring.datasource.driverClassName: org.h2.Driver
-spring.datasource.url: jdbc:h2:file:${datadir}/shrtnr;MODE=MYSQL
+spring.datasource.url: jdbc:h2:file:/data/shrtnr;MODE=MYSQL
 
 flyway.enabled: true
 
 logging.level.org.springframework.web: DEBUG
-host: "http://127.0.0.1:8080/"
+host: "http://127.0.0.1:1070/"
 include: |
    <div class="alert alert-danger">
       this include can be anything you want

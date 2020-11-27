@@ -7,9 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-	<module>shrtnr-api</module>
-	<module>shrtnr-app</module>
-	<module>shrtnr-impl</module>
+		<module>shrtnr-api</module>
+		<module>shrtnr-app</module>
+		<module>shrtnr-impl</module>
 	</modules>
 	<properties>
 
@@ -264,8 +264,17 @@
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.13.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

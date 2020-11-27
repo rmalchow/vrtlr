@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -54,24 +55,39 @@ public class ShtnrController {
 	
 	@PostMapping(value = "/shrtn")
 	public ModelAndView shorten(@RequestParam String url, HttpServletRequest req) throws SqlException, WriterException, IOException {
-		ModelAndView out = new ModelAndView("shortened");
+		ModelAndView out = new ModelAndView("index");
+		out.addObject("url",url);
+		out.addObject("hasError",false);
 		
-		Shrtnd s = service.create(url);
+		if(StringUtils.isEmpty(url)) {
+			return out;
+		}
 		
-		String u = host+s.getId();
-		
-		out.addObject("target", u);
-		out.addObject("include", include);
+		try {
+			Shrtnd s = service.create(url);
 
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		
-		Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
-		hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-		hints.put(EncodeHintType.MARGIN, 0);
-		BitMatrix matrix = new MultiFormatWriter().encode(u, BarcodeFormat.QR_CODE, 120, 120, hints);
-		MatrixToImageWriter.writeToStream(matrix, "png", os);
-		out.addObject("qr", "data:image/png;base64,"+Base64Utils.encodeToString(os.toByteArray()));
-		
+			String u = host+s.getId();
+			
+			out.addObject("target", u);
+			out.addObject("link", s);
+			out.addObject("include", include);
+			
+			ByteArrayOutputStream os = new ByteArrayOutputStream();
+			
+			Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
+			hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+			hints.put(EncodeHintType.MARGIN, 0);
+			BitMatrix matrix = new MultiFormatWriter().encode(u, BarcodeFormat.QR_CODE, 120, 120, hints);
+			MatrixToImageWriter.writeToStream(matrix, "png", os);
+			out.addObject("qr", "data:image/png;base64,"+Base64Utils.encodeToString(os.toByteArray()));
+			out.setViewName("shortened");
+			
+			return out;
+			
+		} catch (Exception e) {
+			out.addObject("hasError",true);
+			out.addObject("error",e.getMessage());
+		}
 		return out;
 	}
 	
@@ -84,9 +100,8 @@ public class ShtnrController {
 			return null;
 		}
 		
-		
 		ModelAndView out = new ModelAndView("longer");
-		out.addObject("target", s.getUrl());
+		out.addObject("link", s);
 		out.addObject("meta", "10; url = "+s.getUrl());
 		out.addObject("include", include);
 

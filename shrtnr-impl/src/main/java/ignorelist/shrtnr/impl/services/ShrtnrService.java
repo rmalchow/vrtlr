@@ -1,5 +1,9 @@
 package ignorelist.shrtnr.impl.services;
 
+import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,10 +20,34 @@ public class ShrtnrService {
 	
 	private IdGeneratorFastShort idg = new IdGeneratorFastShort();
 	
+	private String getMetaTagContent(Document document, String cssQuery) {
+		Element elm = document.select(cssQuery).first();
+		if (elm != null) {
+			return elm.attr("content");
+		}
+		return "";
+	}
+
 	public Shrtnd create(String url) throws SqlException {
-		Shrtnd s = new Shrtnd();
-		s.setUrl(url);
-		return r.save(s,idg.generateId());
+
+		try {
+			Document document = Jsoup.connect(url).get();
+			String title = getMetaTagContent(document, "meta[name=title]");
+			String desc = getMetaTagContent(document, "meta[name=description]");
+			String ogTitle = getMetaTagContent(document, "meta[property=og:title]");
+			String ogDesc = getMetaTagContent(document, "meta[property=og:description]");
+			String ogImage = getMetaTagContent(document, "meta[property=og:image]");
+
+			Shrtnd s = new Shrtnd();
+			s.setUrl(url);
+			s.setTitle(StringUtils.defaultString(ogTitle, title));
+			s.setDesc(StringUtils.defaultString(ogDesc, desc));
+			s.setImage(ogImage);
+			
+			return r.save(s,idg.generateId());
+		} catch (Exception e) {
+		}
+		throw new RuntimeException("invalid URL");
 	}
 
 	public Shrtnd get(String id) throws SqlException {
