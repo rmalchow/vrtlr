@@ -15,6 +15,8 @@ build-jar:
   - docker
   script:
   - sh scripts/build-maven.sh
+  only:
+  - master
   artifacts:
     paths:
     - shrtnr-app/target/shrtnr-app.jar
@@ -27,3 +29,5 @@ build-docker:
   - docker
   script:
   - sh scripts/build-docker.sh
+  only:
+  - master
