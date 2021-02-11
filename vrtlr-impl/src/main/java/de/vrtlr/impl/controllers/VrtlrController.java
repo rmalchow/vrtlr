@@ -33,7 +33,7 @@ import de.vrtlr.impl.services.ShrtnrService;
 
 @Controller
 @RequestMapping(value = "")
-public class ShtnrController {
+public class VrtlrController {
 	
 	@Autowired
 	private ShrtnrService service;
