@@ -1,4 +1,4 @@
-FROM harbor.cloudpowered.services/mcon-group-public/springboot-openjdk11:latest-alpine
+FROM harbor.rand0m.me/public/springboot:latest-alpine
 MAINTAINER Ruben Malchow <ruben.malchow@mcon-group.com>
 COPY vrtlr-app/target/vrtlr-app.jar vrtlr-app.jar
 COPY vrtlr-app/config/application.yml ./
