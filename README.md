@@ -1,4 +1,4 @@
-# Shrtnr
+# vrtlr
 
 - start_dev.sh im Root startet zwei docker run commands. 
 - einer zum kompilieren einer zum starten. (Code etc wird dabei vom host gemountet)
