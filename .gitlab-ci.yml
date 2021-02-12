@@ -4,14 +4,14 @@ stages:
 
 cache:
   untracked: true
-  key: "ldap-m2"
+  key: "vrtlr-m2"
   paths:
-  - m2 
+  - m2
 
 build-jar:
   stage: maven
   image: harbor.cloudpowered.services/mcon-group-public/centos8-base:latest
-  tags: 
+  tags:
   - docker
   script:
   - sh scripts/build-maven.sh
@@ -21,11 +21,11 @@ build-jar:
     paths:
     - shrtnr-app/target/shrtnr-app.jar
     expire_in: 20 mins
-    
+
 build-docker:
   stage: docker
   image: harbor.cloudpowered.services/mcon-group-public/centos8-base:latest
-  tags: 
+  tags:
   - docker
   script:
   - sh scripts/build-docker.sh
