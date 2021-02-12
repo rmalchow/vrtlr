@@ -4,28 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SplittableRandom;
 
+import org.springframework.util.StringUtils;
+
 import de.disk0.dbutil.api.IdGenerator;
 
 public class IdGeneratorFastShort implements IdGenerator {
 	
 	private static SplittableRandom sr = new SplittableRandom();
-	private Character[] alphabet = null;
+	private char[] alphabet = null;
 	
 	public IdGeneratorFastShort() {
-		List<Character> chars = new ArrayList<>();
+		String s = "";
 		for(int i=48;i<58;i++) {
-			chars.add((char)i);
+			s = s +(char)i;
 		}
 		for(int i=65;i<91;i++) {
-			chars.add((char)i);
+			s = s +(char)i;
 		}
 		for(int i=97;i<123;i++) {
-			chars.add((char)i);
+			s = s +(char)i;
 		}
-		chars.add((char)95);
-		chars.add((char)45);
-		alphabet = chars.toArray(new Character[chars.size()]);
-		System.err.println(alphabet.length);
+		s = s +(char)95;
+		s = s +(char)45;
+		alphabet = s.toCharArray();
+		System.err.println(alphabet);
 	}
 	
 	@Override
@@ -33,16 +35,15 @@ public class IdGeneratorFastShort implements IdGenerator {
 		char[] x = new char[8];
 		int l=0;
 		l=sr.nextInt();
-		x[0] = (char)alphabet[l>>0 &0x3F];
-		x[1] = (char)alphabet[l>>6 &0x3F];
-		x[2] = (char)alphabet[l>>12 &0x3F];
-		x[3] = (char)alphabet[l>>18 &0x3F];
+		String s = "";
+		s = s + (char)alphabet[l>>0 &0x3F];
+		s = s + (char)alphabet[l>>6 &0x3F];
+		s = s + (char)alphabet[l>>12 &0x3F];
 		l=sr.nextInt();
-		x[4] = (char)alphabet[l>>0 &0x3F];
-		x[5] = (char)alphabet[l>>6 &0x3F];
-		x[6] = (char)alphabet[l>>12 &0x3F];
-		x[7] = (char)alphabet[l>>18 &0x3F];
-		return new String(x);
+		s = s + (char)alphabet[l>>0 &0x3F];
+		s = s + (char)alphabet[l>>6 &0x3F];
+		s = s + (char)alphabet[l>>12 &0x3F];
+		return s;
 	}
 	
 	public static void main(String[] args) {
