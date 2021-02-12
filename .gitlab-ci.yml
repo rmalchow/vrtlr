@@ -19,7 +19,7 @@ build-jar:
   - master
   artifacts:
     paths:
-    - shrtnr-app/target/shrtnr-app.jar
+    - vrtlr-app/target/vrtlr-app.jar
     expire_in: 20 mins
 
 build-docker:
