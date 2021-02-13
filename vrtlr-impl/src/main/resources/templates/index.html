@@ -1,4 +1,4 @@
-<html>
+<html th:with="lang=${#locale.language}" th:lang="${lang}">
 	<head>
 		<base href="./">
 		<title>shrtnr</title>
@@ -116,8 +116,8 @@
 										<input class="form-control" name="url" th:value="${url}" autofocus placeholder=">>>> paste your url here <<<< ">
 									</div>
 									<div class="col-2 text-right">
-										<button class="btn btn-outline-primary" type="submit">shorten
-											this!</button>
+										<button class="btn btn-outline-primary" type="submit" th:text="#{shorten.button}">button text
+										</button>
 									</div>
 								</div>
 							</div>

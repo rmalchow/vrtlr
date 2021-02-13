@@ -10,6 +10,8 @@ spring.datasource.url: jdbc:h2:file:${datadir}/shrtnr;MODE=MYSQL
 
 flyway.enabled: true
 
+spring.mvc.locale: de_DE
+
 logging.level.org.springframework.web: DEBUG
 host: "http://127.0.0.1:8080/"
 include: |
