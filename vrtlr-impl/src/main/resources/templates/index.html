@@ -1,7 +1,7 @@
 <html th:with="lang=${#locale.language}" th:lang="${lang}">
 	<head>
 		<base href="./">
-		<title>shrtnr</title>
+		<title th:text="#{vrtlr.pagetitle}">vrtlr - your friendly url shortener</title>
 		<link id="main_styles" rel="stylesheet" href="dist/css/styles.css" />
 	</head>
 	<body>
