@@ -7,9 +7,9 @@
 	<body>
 		<form method="post" enctype="application/x-www-form-urlencoded" action="/shrtn">
 			<div class="main">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
+				<div class="container px-0 mx-0">
+					<div class="row mx-0">
+						<div class="col-12 px-0">
 							<svg
 								width="100%"
 							   viewBox="0 0 26.306 7.8"
@@ -55,16 +55,16 @@
 							    </g>
 							</svg>
 						</div>
-						<div class="col-12" th:utext="#{keepItShort.svg}">
+						<div class="col-12 px-0" th:utext="#{keepItShort.svg}">
 							
 						</div>
-						<div class="col-12 flex-nowrap">
+						<div class="col-12  px-0 flex-nowrap">
 							<div style="border-width: 4; border-style: dashed; border-color: #333333; padding: 20px">
 								<div class="row">
-									<div class="col-10">
+									<div class="col-md-9 col-ld-9 col-sd-12  my-2">
 										<input class="form-control" name="url" th:value="${url}" autofocus placeholder=">>>> paste your url here <<<< ">
 									</div>
-									<div class="col-2 text-right">
+									<div class="col-md-3 col-ld-3 col-sd-12 text-right my-2">
 										<button class="btn btn-outline-primary" type="submit" th:text="#{shorten.button}">button text
 										</button>
 									</div>
