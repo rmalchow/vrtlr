@@ -86,7 +86,7 @@ public class VrtlrController {
 			Map<EncodeHintType, Object> hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
 			hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
 			hints.put(EncodeHintType.MARGIN, 0);
-			BitMatrix matrix = new MultiFormatWriter().encode(u, BarcodeFormat.QR_CODE, 120, 120, hints);
+			BitMatrix matrix = new MultiFormatWriter().encode(u, BarcodeFormat.QR_CODE, 240, 240, hints);
 			MatrixToImageWriter.writeToStream(matrix, "png", os);
 			out.addObject("qr", "data:image/png;base64,"+Base64Utils.encodeToString(os.toByteArray()));
 			out.setViewName("shortened");
