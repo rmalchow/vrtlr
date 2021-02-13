@@ -107,7 +107,7 @@ public class VrtlrController {
 		
 		Shrtnd s = service.get(shortened);
 		if(s==null) {
-			response.sendRedirect("/");
+			response.sendRedirect(host);
 			return null;
 		}
 		
