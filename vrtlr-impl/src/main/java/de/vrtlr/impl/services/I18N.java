@@ -1,7 +1,5 @@
 package de.vrtlr.impl.services;
 
-import java.util.Locale;
-
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +7,6 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
@@ -25,10 +22,7 @@ public class I18N implements WebMvcConfigurer {
 
     @Bean
     public LocaleResolver localeResolver() {
-        CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(new Locale("en","US"));
-        resolver.setCookieName("myI18N_cookie");
-        return resolver;
+    	return new ChainedLocaleResolver();
     }
 
     @Override
@@ -37,5 +31,6 @@ public class I18N implements WebMvcConfigurer {
         interceptor.setParamName("locale");
         reg.addInterceptor(interceptor);
     }
-
+    
+    
 }
