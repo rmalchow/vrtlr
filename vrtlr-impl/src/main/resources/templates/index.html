@@ -55,19 +55,17 @@
 							    </g>
 							</svg>
 						</div>
-						<div class="col-12 px-0" th:utext="#{keepItShort.svg}">
+						<div class="col-12 px-0" th:utext="#{keepItShort.svg}" >
 							
 						</div>
-						<div class="col-12  px-0 flex-nowrap">
-							<div 
-								<div class="row">
-									<div class="col-10 my-2">
-										<input class="" name="url" style="resize: vertical; border-width: 4; border-style: dashed; border-color: #333333; padding: 20px" th:value="${url}" autofocus placeholder=">>>> paste your url here <<<< ">
-									</div>
-									<div class="col-md-3 col-ld-3 col-sd-12 text-right my-2">
-										<button class="btn btn-outline-primary" type="submit" th:text="#{shorten.button}">button text
-										</button>
-									</div>
+						<div class="col-12  mb-4 px-4 flex-nowrap" style="resize: vertical; border-width: 4; border-style: dashed; border-color: #333333; padding: 20px;" >
+							<div class="row">
+								<div class="col-md-9 col-ld-9 col-sd-12" >
+									<input name="url" th:value="${url}" autofocus placeholder=">>>> paste your url here <<<< " style="border-width:0; font-size: 40">
+								</div>
+								<div class="col-md-3 col-ld-3 col-sd-12 text-right" style="margin-top: auto; margin-bottom: auto">
+									<button class="btn btn-outline-primary" type="submit" th:text="#{shorten.button}">button text
+									</button>
 								</div>
 							</div>
 						</div>
