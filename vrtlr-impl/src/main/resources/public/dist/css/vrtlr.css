@@ -1,1 +1,29 @@
 @import "bootstrap.min.css";
+
+.vrtlr-dashed {
+    border-width: 0.25rem 0 0.25rem 0.25rem;
+    border-style: dashed; 
+    border-color: #000000;
+    padding: 0;
+}
+
+.vrtlr-send-button {
+    background: rgba(0, 0, 0, 0);
+    width: 5rem;
+    border-width: 0.25rem 0.25rem 0.25rem 0; 
+    border-style: dashed;
+    border-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.form-control,.form-control:focus {
+    box-shadow: none;
+    padding:1rem;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    border-width:0;
+    font-size: 1.5rem;
+  }
