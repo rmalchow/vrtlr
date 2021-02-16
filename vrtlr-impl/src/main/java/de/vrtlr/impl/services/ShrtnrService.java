@@ -37,6 +37,15 @@ public class ShrtnrService {
 			List<Shrtnd> se = r.find(null, url, 0, 1);
 			if(se.size()>0) return se.get(0);
 			
+			if(url.toUpperCase().startsWith("HTTP://")) {
+				// ok
+			} else if(url.toUpperCase().startsWith("HTTPS://")) {
+				// ok
+			} else {
+				url = "https://"+url;
+			}
+			
+			
 			Document document = Jsoup.connect(url).get();
 			String title = getMetaTagContent(document, "meta[name=title]");
 			String desc = getMetaTagContent(document, "meta[name=description]");
