@@ -80,6 +80,7 @@ public class VrtlrController {
 
 			String u = host+s.getId();
 			
+			out.addObject("mnemonic", s.getMnemonic());
 			out.addObject("target", u);
 			out.addObject("link", s);
 			out.addObject("include", include);

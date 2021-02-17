@@ -20,6 +20,9 @@ public class ShrtnrService {
 	@Autowired
 	private ShrtnrRepo r;
 	
+	@Autowired
+	private Generator g;
+	
 	private IdGeneratorFastShort idg = new IdGeneratorFastShort();
 	
 	private String getMetaTagContent(Document document, String cssQuery) {
@@ -54,6 +57,7 @@ public class ShrtnrService {
 			String ogImage = getMetaTagContent(document, "meta[property=og:image]");
 
 			Shrtnd s = new Shrtnd();
+			s.setMnemonic(g.generate());
 			s.setUrl(url);
 			s.setTitle(StringUtils.defaultString(ogTitle, title));
 			s.setDesc(StringUtils.defaultString(ogDesc, desc));

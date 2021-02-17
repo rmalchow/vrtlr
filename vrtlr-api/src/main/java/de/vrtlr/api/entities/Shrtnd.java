@@ -16,6 +16,9 @@ public class Shrtnd extends BaseGuidEntity {
 	@Column(name="title")
 	private String title;
 
+	@Column(name="mnemonic")
+	private String mnemonic;
+
 	@Column(name="description")
 	private String desc;
 
@@ -64,6 +67,14 @@ public class Shrtnd extends BaseGuidEntity {
 
 	public void setHash(String hash) {
 		this.hash = hash;
+	}
+
+	public String getMnemonic() {
+		return mnemonic;
+	}
+
+	public void setMnemonic(String mnemonic) {
+		this.mnemonic = mnemonic;
 	}
 	
 }
