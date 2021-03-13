@@ -21,7 +21,7 @@
 
 		<hibernate-jpa.version>1.0.1.Final</hibernate-jpa.version>
 
-		<dbutil.version>0.0.60</dbutil.version>
+		<dbutil.version>0.0.68</dbutil.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<commons-io.version>1.3.2</commons-io.version>
 		<commons-net.version>3.6</commons-net.version>
