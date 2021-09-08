@@ -1,25 +1,30 @@
 @import "bootstrap.min.css";
 
+
 .vrtlr-dashed {
-    border-width: 0.25rem 0 0.25rem 0.25rem;
+    border-width: 0.25rem 0.25rem 0.25rem 0.25rem;
     border-style: dashed; 
     border-color: #000000;
-    padding: 0;
+    /*padding: 0;*/
+}
+
+.svg-send {
+  /*  padding: 0.5rem 1.5rem; */
 }
 
 .vrtlr-send-button {
     background: rgba(0, 0, 0, 0);
-    width: 5rem;
-    border-width: 0.25rem 0.25rem 0.25rem 0; 
+    border: 0;
+/*    border-width: 0.25rem 0.25rem 0.25rem 0; 
     border-style: dashed;
-    border-color: #000000;
+    border-color: #000000;*/
     margin: 0;
     padding: 0;
 }
 
 .form-control,.form-control:focus {
     box-shadow: none;
-    padding:1rem;
+    padding: 0.5rem 0.5rem 0.5rem 0rem;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -moz-transition: none;
